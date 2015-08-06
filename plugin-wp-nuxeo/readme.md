@@ -18,7 +18,7 @@ WordPress Nuxeo integration through the use of a shortcode.
 
 ### Manual
 
-Manual installation through the Plugins panel of WordPress.
+Zip the plugin-wp-nuxeo projet and deploy manually through the Plugins panel of WordPress. Set the global parameters through the Settings>Nuxeo Options menu.
 
 ## Usage
 
