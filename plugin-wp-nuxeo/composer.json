@@ -1,0 +1,17 @@
+{
+  "name": "wordpress-nuxeo",
+  "description": "Wordpress Nuxeo Plugin.",
+  "keywords": ["wordpress", "plugin", "automation", "nuxeo"],
+  "homepage": "http://www.nuxeo.com",
+  "license": "LGPLv3",
+  "authors": [
+    {
+      "name": "Nuxeo",
+      "homepage": "http://www.nuxeo.com"
+    }
+  ],
+  "type": "wordpress-plugin",
+  "require": {
+    "composer/installers": "~1.0"
+  }
+}
