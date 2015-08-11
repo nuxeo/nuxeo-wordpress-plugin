@@ -18,7 +18,52 @@ WordPress Nuxeo integration through the use of a shortcode.
 
 ### Manual
 
-Zip the plugin-wp-nuxeo projet and deploy manually through the Plugins panel of WordPress. Set the global parameters through the Settings>Nuxeo Options menu.
+On WordPress side, zip the plugin-wp-nuxeo projet and deploy manually through the Plugins panel of WordPress. Set the global parameters through the Settings>Nuxeo Options menu.
+On Nuxeo side, build the [SSO plugin](https://github.com/nuxeo/nuxeo-platform-login/tree/master/nuxeo-platform-login-mod_sso) (according to your Nuxeo version) and store it on <Nuxeo>/nxserver/bundles.
+Create a XML file mod-sso-config.xml with the following content and store it on <Nuxeo>/nxserver/config :
+
+```xml
+<component name="org.nuxeo.ecm.platform.wordpress.authenticator.mod.sso.config">
+ 
+  <require>org.nuxeo.ecm.platform.ui.web.auth.WebEngineConfig</require>
+  <require>org.nuxeo.ecm.platform.login.Proxy</require>
+ 
+  <extension target="org.nuxeo.ecm.platform.ui.web.auth.service.PluggableAuthenticationService" point="authenticators">
+    <authenticationPlugin name="PROXY_AUTH">
+      <loginModulePlugin>Trusting_LM</loginModulePlugin>
+      <parameters>
+        <!-- configure here the name of the http header that is used to retrieve user identity -->
+        <parameter name="ssoHeaderName">remote_user</parameter>
+        <parameter name="ssoNeverRedirect">true</parameter>
+      </parameters>
+    </authenticationPlugin>
+  </extension>
+ 
+  <extension target="org.nuxeo.ecm.platform.ui.web.auth.service.PluggableAuthenticationService" point="chain">
+    <authenticationChain>
+      <plugins>
+        <!--  Keep basic Auth at top of Auth chain to support RSS access via BasicAuth -->
+        <plugin>BASIC_AUTH</plugin>
+				<plugin>FORM_AUTH</plugin>
+      </plugins>
+    </authenticationChain>
+  </extension>
+
+  <extension point="specificChains" target="org.nuxeo.ecm.platform.ui.web.auth.service.PluggableAuthenticationService">
+    <specificAuthenticationChain name="Automation">
+        <urlPatterns>
+            <url>(.*)/automation.*</url>
+        </urlPatterns>
+        	<replacementChain>
+						<plugin>PROXY_AUTH</plugin>
+            		<plugin>AUTOMATION_BASIC_AUTH</plugin>
+						<plugin>ANONYMOUS_AUTH</plugin>
+        </replacementChain>
+    </specificAuthenticationChain>
+  </extension>
+</component>
+
+```
 
 ## Usage
 
