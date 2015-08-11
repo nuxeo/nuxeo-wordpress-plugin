@@ -3,7 +3,7 @@
   "description": "Wordpress Nuxeo Plugin.",
   "keywords": ["wordpress", "plugin", "automation", "nuxeo"],
   "homepage": "http://www.nuxeo.com",
-  "license": "LGPLv3",
+  "license": "Apache License v2.0",
   "authors": [
     {
       "name": "Nuxeo",

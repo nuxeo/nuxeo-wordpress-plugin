@@ -8,7 +8,7 @@
 **Version**:            0.0.1-snapshot  
 **Author**:             Nuxeo  
 **Author URI**:         http://www.nuxeo.com/  
-**License**:            LGPLv3  
+**License**:            Apache License v2.0  
 
 ## Description
 
