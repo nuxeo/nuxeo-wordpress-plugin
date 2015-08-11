@@ -30,6 +30,9 @@ Usage of the plugin :
  * [nuxeo doc_id="c5e890d3-87f5-42cb-abe4-1ed9d0d2600c"]				# Display the detail of a document based on its id
  * [nuxeo folderish_id="05cdeaa1-e57d-450a-8347-1600206e7cce"]		# Display the content of a folderish document based on its id
 
+## Documentation
+Take a look at the Blog Post [Power Up Your Website: Integrate Nuxeo with WordPress](http://www.nuxeo.com/blog/power-up-your-website-integrate-nuxeo-with-wordpress/) to have more details (installation and usage) on that plugin.
+
 ## License
 
-LGPLv3
+apache License v2.0
