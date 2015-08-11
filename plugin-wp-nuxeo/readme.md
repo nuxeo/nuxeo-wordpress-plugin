@@ -19,8 +19,8 @@ WordPress Nuxeo integration through the use of a shortcode.
 ### Manual
 
 On WordPress side, zip the plugin-wp-nuxeo projet and deploy manually through the Plugins panel of WordPress. Set the global parameters through the Settings>Nuxeo Options menu.
-On Nuxeo side, build the [SSO plugin](https://github.com/nuxeo/nuxeo-platform-login/tree/master/nuxeo-platform-login-mod_sso) (according to your Nuxeo version) and store it on <Nuxeo>/nxserver/bundles.
-Create a XML file mod-sso-config.xml with the following content and store it on <Nuxeo>/nxserver/config :
+On Nuxeo side, build the [SSO plugin](https://github.com/nuxeo/nuxeo-platform-login/tree/master/nuxeo-platform-login-mod_sso) (according to your Nuxeo version) and store it on NUXEO-PATH/nxserver/bundles.
+Create a XML file mod-sso-config.xml with the following content and store it on NUXEO-PATH/nxserver/config :
 
 ```xml
 <component name="org.nuxeo.ecm.platform.wordpress.authenticator.mod.sso.config">
