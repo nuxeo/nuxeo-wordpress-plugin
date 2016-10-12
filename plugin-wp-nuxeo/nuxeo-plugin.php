@@ -3,7 +3,7 @@
 Plugin Name: Plugin Nuxeo for Wordpress
 Plugin URI: https://github.com/nuxeo/plugin-wp-nuxeo
 Description: Wordpress Plugin for Nuxeo through Automation API.
-Version: 1.0.0
+Version: 1.1.0-SNAPSHOT
 Author: nuxeo
 Author URI: https://github.com/nuxeo
 
