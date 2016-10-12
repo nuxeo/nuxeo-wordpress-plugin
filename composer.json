@@ -1,0 +1,27 @@
+{
+  "name": "wordpress-nuxeo",
+  "description": "Wordpress Nuxeo Plugin.",
+  "keywords": ["wordpress", "plugin", "automation", "nuxeo"],
+  "homepage": "http://www.nuxeo.com",
+  "license": "Apache License v2.0",
+  "type": "wordpress-plugin",
+  "config": {
+    "vendor-dir": "plugin-wp-nuxeo/vendor"
+  },
+  "authors": [
+    {
+      "name": "Nuxeo",
+      "homepage": "http://www.nuxeo.com"
+    }
+  ],
+  "require": {
+    "johnpbloch/wordpress": "~4.5",
+    "nuxeo/nuxeo-automation-php-client": "~1.1",
+    "symfony/http-foundation": "~3.1",
+    "symfony/validator": "~3.1",
+    "twig/twig": "~1.26"
+  },
+  "extra": {
+    "wordpress-install-dir": "wordpress"
+  }
+}

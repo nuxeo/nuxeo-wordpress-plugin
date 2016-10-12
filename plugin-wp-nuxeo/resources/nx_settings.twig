@@ -1,0 +1,60 @@
+<div class="wrap">
+    <h2>Nuxeo options</h2>
+    <form method="post" action="options.php">
+        {{ settings_fields('nuxeo-settings-group') }}
+        {{ do_settings_sections('nuxeo_repository') }}
+        <table class="form-table">
+            <tr valign="top">
+                <th scope="row">
+                    <label for="nx_repository_url">Nuxeo URL</label>
+                </th>
+                <td>
+                    <input type="text" class="regular-text" name="nx_repository_url" id="nx_repository_url"
+                           value="{{ get_option('nx_repository_url') }}"> <span class="description">ex: http://localhost:8080/nuxeo</span>
+                </td>
+            </tr>
+            <tr valign="top">
+                <th scope="row">
+                    <label for="nx_workspace_root">Nuxeo Domain path</label>
+                </th>
+                <td>
+                    <input type="text" class="regular-text" name="nx_workspace_root" id="nx_workspace_root"
+                           value="{{ get_option('nx_workspace_root') }}"> <span class="description">ex: /default-domain</span>
+                </td>
+            </tr>
+            <tr valign="top">
+                <th scope="row">
+                    <label for="nx_username">User name</label>
+                </th>
+                <td>
+                    <input type="text" name="nx_username" id="nx_username"
+                           value="{{ get_option('nx_username') }}">
+                </td>
+            </tr>
+            <tr valign="row">
+                <th scope="row">
+                    <label for="nx_password">Password</label>
+                </th>
+                <td>
+                    <input type="password" name="nx_password" id="nx_password"
+                           value="{{ get_option('nx_password') }}">
+                </td>
+            </tr>
+            <tr valign="row">
+                <th scope="row">
+                    <label for="nx_display_query">Display NXQL query (Debug)</label>
+                </th>
+                <td>
+                    <input type="radio" name="nx_display_query" id="nx_display_query"
+                           value="true" {% if get_option('nx_display_query') == 'true' %}checked{% endif %}/>True
+                    <input type="radio" name="nx_display_query" id="nx_display_query"
+                           value="false" {% if not get_option('nx_display_query') == 'false' %}checked{% endif %}/>
+                    False<br/>
+                </td>
+            </tr>
+        </table>
+        <p class="submit">
+            <input type="submit" class="button-primary" value="{{ _e('Save Changes') }}"/>
+        </p>
+    </form>
+</div>

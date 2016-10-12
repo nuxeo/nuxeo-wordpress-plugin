@@ -1,0 +1,30 @@
+wordpress:
+  image: wordpress:4.5
+  volumes:
+    - ./plugin-wp-nuxeo:/var/www/html/wp-content/plugins/plugin-wp-nuxeo
+    - ./docker/wordpress/apache-custom.conf:/etc/apache2/conf-enabled/zzz-custom.conf
+    - ./docker/wordpress/custom.ini:/usr/local/etc/php/conf.d/zzz-custom.ini
+  ports:
+    - "9080:80"
+  links:
+    - mysql
+    - nuxeo
+    - ssl
+mysql:
+  image: mariadb:10
+  environment:
+      MYSQL_ROOT_PASSWORD: p@ssw0rd
+nuxeo:
+  image: nuxeo:8
+  ports:
+    - "9081:8080"
+  environment:
+    - NUXEO_URL=https://localhost:9443/nuxeo
+ssl:
+  build: docker/ssl-proxy
+  volumes:
+   - ./docker/ssl-proxy/ssl.conf:/etc/nginx/conf.d/zzz-custom.conf
+  links:
+    - nuxeo
+  ports:
+    - "9443:443"
