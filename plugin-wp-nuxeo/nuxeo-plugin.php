@@ -176,7 +176,7 @@ class NuxeoWordPressPlugin {
     try {
       $docList = $nxsession->newRequest("Document.Query")->set('params', 'query', "$nxquery")->setSchema($schema = '*')->sendRequest();
     } catch(\Nuxeo\Automation\Client\Internals\NuxeoClientException $e) {
-      return $e->getPrevious()->getMessage();
+      return $e->getMessage();
     }
 
     return $this->getTwig()->render('nx_object_list', array(
