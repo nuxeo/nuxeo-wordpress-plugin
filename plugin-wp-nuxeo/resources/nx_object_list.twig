@@ -1,6 +1,6 @@
-{% if trace|length > 0 %}<p style="color: red">Nuxeo Query : {{ trace }}</p>{% endif %}
-<table border="1">
-    <tr bgcolor="#0084C3">
+{% if trace|length > 0 %}<p class="nx-debug">Nuxeo Query : {{ trace }}</p>{% endif %}
+<table class="nx-table">
+    <tr>
         <th>Doc</th>
         <th>Creator</th>
         <th>Creation date</th>
@@ -8,7 +8,7 @@
     </tr>
     {% for doc in docs %}
     <tr>
-        <td><a href="{{ doc|nx_url }}">{{ doc.title }}</a></td>
+        <td><a href="{{ doc|nx_url }}" target="_blank">{{ doc.title }}</a></td>
         <td>{{ doc.getProperty('dc:creator') }}</td>
         <td>{{ doc.getProperty('dc:created')|nx_parse_date|date('d-m-Y') }}</td>
         <td>{{ doc.type }}</td>
